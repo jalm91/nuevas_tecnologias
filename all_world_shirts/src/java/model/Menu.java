@@ -19,7 +19,7 @@ public class Menu {
         this.categories.add(new ItemMenu("us.jsp","All World shirts","All World shirts"));
         this.categories.add(new ItemMenu("contact.jsp","Contactanos","Contactanos"));    
        
-        this.categories.add(new ItemMenu("","Coleccion de invierno","Collection"));
+        this.categories.add(new ItemMenu("collection.jsp?id_collection=0","Coleccion de invierno","Collection"));
         this.categories.add(new ItemMenu("","Coleccion de Otoño ","Collection"));
         
     }
