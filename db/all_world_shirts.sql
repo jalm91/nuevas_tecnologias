@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-04-2017 a las 03:32:27
+-- Tiempo de generación: 08-04-2017 a las 04:43:25
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -39,8 +39,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_product`, `id_collection`, `name_product`, `price`, `img_default`) VALUES
-(1, 0, 'AEROSMIT', 0, 'aerosmit'),
-(2, 0, 'COLDPLAY', 0, 'cold_play');
+(1, 0, 'AEROSMIT', 250000, 'aerosmit.jpg'),
+(2, 0, 'COLDPLAY', 300000, 'cold_play.jpg');
 
 --
 -- Índices para tablas volcadas
