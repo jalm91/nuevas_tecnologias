@@ -3,7 +3,12 @@
     Created on : 22/03/2017, 12:10:07 PM
     Author     : Home
 --%>
-
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.all_world_shirtts.entities.Collection"%>
+<%@page import="com.all_world_shirts.controllers.CollectionJpaController"%>
+<%@page import="javax.persistence.Persistence"%>
+<%@page import="javax.persistence.EntityManagerFactory"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,11 +50,11 @@
     </head>
     <body onload="mueveDivs()">         
 <!--wrapper-->
+
 <div class="wrapper">    
     <!-- head-->
 	<%@include file="menu.jsp" %>
-    <!-- end:header -->
-    
+    <!-- end:header -->     
     <section class="h2-hero">
     	<div class="fullwidthbanner-container">
         <div class="tp-banner" >

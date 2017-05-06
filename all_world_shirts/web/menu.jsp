@@ -3,13 +3,28 @@
     Created on : 22/03/2017, 11:52:53 AM
     Author     : Home
 --%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.all_world_shirtts.entities.Collection"%>
+<%@page import="com.all_world_shirts.controllers.CollectionJpaController"%>
+<%@page import="javax.persistence.Persistence"%>
+<%@page import="javax.persistence.EntityManagerFactory"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css" />
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
     model.Menu menu = new model.Menu();
+    
 %>
+    <% 
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("all_world_shirtsPU");
+         CollectionJpaController collectionController = new CollectionJpaController(emf);
+         /*collectionController.findCollectionEntities().forEach(collec -> System.out.println(collec));*/
+        List<Collection> collections;
+         collections = collectionController.findCollectionEntities();
+         
+    %>
     <header class="glass">
          <div class="nav-container stickmenu clearfix header_menu" style="border-bottom:5px solid #c793a1;">
 
@@ -36,8 +51,14 @@
                             <span class="arrow"></span>
                               <a href="<%=menu.getCategories().get(1).getUrl()%>"><i class="fa iconos_menu_nube"></i><span><%=menu.getCategories().get(1).getCategory()%></span></a>
                                 <ul>
-                                    <li><a href="<%=menu.getCategories().get(5).getUrl()%>"><span><%=menu.getCategories().get(5).getCategory()%></span></a></li>
-                                    <li><a href="<%=menu.getCategories().get(6).getUrl()%>"><span><%=menu.getCategories().get(6).getCategory()%></span></a></li>
+                                <% 
+                                for(int i = 0; i < collections.size();i++){
+
+                                %>
+                                <li><a href="collection.jsp?id_collection=<%= collections.get(i).getIdCollection()%>&collection_name=<%= collections.get(i).getCollectionName() %>&description=<%= collections.get(i).getDescription()%>"><span><%= collections.get(i).getCollectionName() %> </span></a></li>
+                                 <%
+                                 } 
+                                 %>
                                 </ul>                            
                           </li>
                           <!-- Old Collection-->
