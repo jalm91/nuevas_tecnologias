@@ -60,9 +60,10 @@
     </section> 
                   
     <div id="main">
-	
-	    	<div class="container">
-           		<div class="col-lg-4">
+        <form action="SaveContact">
+	   <div class="container">
+                    
+                <div class="col-lg-4">
                 <div class="text-heading large-head left">
                   	<h1>informacion de Contacto</h1>
                   	<span><i class="fa fa-phone fa-2x"></i>&nbsp&nbsp3472311</span>
@@ -87,13 +88,13 @@
                          		<form id="contact-form" action="#" method="post">
                               
                                  <label class="required" for="contact_name">Nombre <span>*</span></label>
-                                 <input class="valid" type="text" name="name" id="contact_name" value="">
+                                 <input class="valid" type="text" name="contact_name" id="contact_name" value="" required>
                                  <label class="required" for="contact_email">Email <span>*</span></label>
-                                 <input type="email" class="valid" name="email" id="contact_email" value="">
+                                 <input type="email" class="valid" name="contact_email" id="contact_email" value="" required>
                                  <label class="required" for="contact_url">Asunto</label>                                                            
-                                 <input type="url" value="" id="contact_url" name="url">
+                                 <input type="text" value="" id="contact_url" name="contact_url" required>
                                   <label class="required" for="contact_message">Mensaje <span>*</span></label>
-                                    <textarea rows="6" cols="40" id="contact_message" name="message"></textarea>
+                                    <textarea rows="6" cols="40" id="contact_message" name="contact_message" required></textarea>
                               <p>                    
                                   <button class="btn btn-violet btn-lg btn-block" type="submit" id="submit-contact"  value="Send message"> Send </button>
                               </p>      	
@@ -103,10 +104,8 @@
                       </div><!--end:col-->  	
           
               </div><!--end:colright-->
-   
-           
-        </div><!--end:container-->
-
+         </div><!--end:container--> 	
+       </form>
     </div><!--end:main-->
     <%@include file="footer.jsp" %>
     <a href="#" class="back-to-top"> <i class="fa fa-angle-up"></i> </a>

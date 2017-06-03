@@ -53,10 +53,11 @@
                                 <ul>
                                 <% 
                                 for(int i = 0; i < collections.size();i++){
-
+                                     if(collections.get(i).getEnabled()==true){
                                 %>
                                 <li><a href="collection.jsp?id_collection=<%= collections.get(i).getIdCollection()%>&collection_name=<%= collections.get(i).getCollectionName() %>&description=<%= collections.get(i).getDescription()%>"><span><%= collections.get(i).getCollectionName() %> </span></a></li>
                                  <%
+                                     }
                                  } 
                                  %>
                                 </ul>                            

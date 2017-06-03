@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.all_world_shirtts.entities.Collection</class>
     <class>com.all_world_shirtts.entities.Producto</class>
+    <class>com.all_world_shirtts.entities.Contact</class>
+    <class>com.all_world_shirtts.entities.Payment</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/all_world_shirts"/>

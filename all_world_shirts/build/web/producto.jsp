@@ -76,6 +76,7 @@
         </div><!--end:fullwidthbanner-container-->
     </section><!--end:h2-hero-->
     <div id="main">
+        <input name ="idProducto" type="hidden" value ="<%= idProducto %>"/>
     	<div class="container">
         	<div class="row">
             	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -123,7 +124,7 @@
 
                             <br>
                             <br>
-                              <label for="cantDisp"><b>Stock&nbsp&nbsp</b></label><input id="cantDisp" type="text" value="50" readonly />
+                              <label for="cantDisp"><b>Stock&nbsp&nbsp</b></label><input id="cantDisp" type="text" value="<%= Product.getCantidad() %>" readonly />
                             <br>
                             <br>
                             <div class="cart">
@@ -132,7 +133,7 @@
                                     <input type='text' name='quantity' value='0' class='qty' />
                                     <input type='button' value='+' class='qtyplus' field='quantity' />
                                 </form>
-                                    <button class="btn btn-dark fr btn_producto" type="button" onclick = "addCarrito();"> <i class="fa fa-shopping-cart"></i> Find Us</button>
+                                    <button class="btn btn-dark fr btn_producto" type="button" onclick = "addCarrito();"> <i class="fa fa-shopping-cart"></i> Comprar</button>
                                     <input name = "id_prod" id="id_prod" type="hidden" value = "<%= Product.getIdProduct() %>">
                             </div><!--end:cart-->
                             <div class="product_meta">
@@ -252,8 +253,9 @@ function inicializa_xhr()
    }
 }
 
-function addCarrito(){
-  window.location="contact.jsp";
+function addCarrito(){    
+    var cant = document.querySelector('input[name="quantity"]').value;
+    window.location="pay.jsp?id_producto=<%= idProducto %>&cantidad=" + cant + "&prec=<%= Product.getPrice() %>";
 }
 
 function addCarrito_new()

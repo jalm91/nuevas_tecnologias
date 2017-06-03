@@ -77,7 +77,7 @@
 		    	</div><!--end:List-carousel-->
 		    	<div class="owl-carousel ca-list-items" data-edicion="<%= idCollection %>">	    		
                                         <% for(int index =0;index< Productos.size();index ++){ %>
-                                        <% if(Productos.get(index).getIdCollection() == idCollection){ %>
+                                        <% if(Productos.get(index).getIdCollection() == idCollection && Productos.get(index).getEnabled()== true){ %>
 					<div class="s1-item">
 						<div class="product-thumb">
 							<a href="<%= urlImg %><%= Productos.get(index).getImgDefault() %>" class="prettyPhoto"><img src="<%= urlImg %><%= Productos.get(index).getImgDefault() %>"></a>

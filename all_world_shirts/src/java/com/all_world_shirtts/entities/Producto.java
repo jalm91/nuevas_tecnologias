@@ -27,11 +27,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")
     , @NamedQuery(name = "Producto.findByIdProduct", query = "SELECT p FROM Producto p WHERE p.idProduct = :idProduct")
+    , @NamedQuery(name = "Producto.findByDescription", query = "SELECT p FROM Producto p WHERE p.description = :description")
+    , @NamedQuery(name = "Producto.findByEnabled", query = "SELECT p FROM Producto p WHERE p.enabled = :enabled")
     , @NamedQuery(name = "Producto.findByIdCollection", query = "SELECT p FROM Producto p WHERE p.idCollection = :idCollection")
+    , @NamedQuery(name = "Producto.findByImgDefault", query = "SELECT p FROM Producto p WHERE p.imgDefault = :imgDefault")
     , @NamedQuery(name = "Producto.findByNameProduct", query = "SELECT p FROM Producto p WHERE p.nameProduct = :nameProduct")
     , @NamedQuery(name = "Producto.findByPrice", query = "SELECT p FROM Producto p WHERE p.price = :price")
-    , @NamedQuery(name = "Producto.findByImgDefault", query = "SELECT p FROM Producto p WHERE p.imgDefault = :imgDefault")
-    , @NamedQuery(name = "Producto.findByDescription", query = "SELECT p FROM Producto p WHERE p.description = :description")})
+    , @NamedQuery(name = "Producto.findByCantidad", query = "SELECT p FROM Producto p WHERE p.cantidad = :cantidad")})
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,28 +42,26 @@ public class Producto implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_product")
     private Integer idProduct;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "enabled")
+    private Boolean enabled;
     @Column(name = "id_collection")
     private Integer idCollection;
+    @Column(name = "img_default")
+    private String imgDefault;
     @Column(name = "name_product")
     private String nameProduct;
     @Column(name = "price")
     private Integer price;
-    @Column(name = "img_default")
-    private String imgDefault;
-    @Basic(optional = false)
-    @Column(name = "description")
-    private String description;
+    @Column(name = "cantidad")
+    private Integer cantidad;
 
     public Producto() {
     }
 
     public Producto(Integer idProduct) {
         this.idProduct = idProduct;
-    }
-
-    public Producto(Integer idProduct, String description) {
-        this.idProduct = idProduct;
-        this.description = description;
     }
 
     public Integer getIdProduct() {
@@ -72,12 +72,36 @@ public class Producto implements Serializable {
         this.idProduct = idProduct;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Integer getIdCollection() {
         return idCollection;
     }
 
     public void setIdCollection(Integer idCollection) {
         this.idCollection = idCollection;
+    }
+
+    public String getImgDefault() {
+        return imgDefault;
+    }
+
+    public void setImgDefault(String imgDefault) {
+        this.imgDefault = imgDefault;
     }
 
     public String getNameProduct() {
@@ -96,20 +120,12 @@ public class Producto implements Serializable {
         this.price = price;
     }
 
-    public String getImgDefault() {
-        return imgDefault;
+    public Integer getCantidad() {
+        return cantidad;
     }
 
-    public void setImgDefault(String imgDefault) {
-        this.imgDefault = imgDefault;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override
